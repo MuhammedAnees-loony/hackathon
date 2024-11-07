@@ -1,0 +1,255 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1b1b32;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar {
+    background-color: #2d2e4e;
+    width: 250px;
+    padding: 30px 20px;
+}
+
+.sidebar .logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #55f;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color: #f1f1f1;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.sidebar .menu-item.active, .sidebar .menu-item:hover {
+    background-color: #40406e;
+    color: #55f;
+}
+
+.sidebar .menu-item span {
+    margin-right: 10px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    gap: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f781c6;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: black;
+    font-size: 22px;
+}
+
+/* Task Area Styling */
+.task-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Task Category Styling */
+.task-category {
+    background-color: #2d2e4e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center; /* Aligns items horizontally to the center */
+    align-items: center; /* Aligns items vertically to the center */
+    text-align: center; /* Centers inline content */
+}
+
+
+.task-category h3 {
+    color: #f781c6;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Individual Task Styling */
+.task, .chest {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #40406e;
+    padding: 10px;
+    border-radius: 8px;
+    color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    width: 80%;
+    margin: 0 auto;
+}
+
+.task-icon, .chest-icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #f781c6;
+}
+
+.task p, .chest p {
+    font-size: 14px;
+    color: #d1d1e0;
+    margin: 0;
+}
+.profile-card {
+    text-align: center;
+    background: #1c2833;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.profile-card .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    border: 4px solid #58d68d; /* Border around avatar */
+}
+
+.profile-card h2 {
+    color: #f781c6;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.profile-card p {
+    color: #d1d1d1;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.profile-card .flags {
+    margin-top: 10px;
+}
+
+.profile-card .flags span {
+    font-size: 1.5em;
+    margin: 0 8px;
+    color: #58d68d;
+    transition: transform 0.3s ease;
+}
+
+.profile-card .flags span:hover {
+    transform: scale(1.2);
+}
+
+.stats-achievements {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 30px;
+    margin-left: auto; /* Pushes to the right */
+    width: 100%;
+}
+.stats, .achievements {
+    flex: 1;
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stats h3, .achievements h3 {
+    color: #58d68d;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.stat-item, .achievement-item {
+    background: #273746;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 8px 0;
+    color: #d1d1d1;
+    font-size: 14px;
+}
+
+.stat-item span, .achievement-item span {
+    color: #f781c6;
+    font-weight: bold;
+}
+
+.friends {
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.friends h3 {
+    color: #58d68d;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.friend {
+    background: #273746;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px 0;
+    color: #d1d1d1;
+    font-size: 14px;
+}
+
+button {
+    background-color: #58d68d;
+    color: #111b21;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}

@@ -1,3 +1,4 @@
+
 // Dummy user data storage using localStorage (only used temporarily until backend is connected)
 const users = JSON.parse(localStorage.getItem("users")) || {};
 let currentUser = null;
@@ -107,7 +108,8 @@ async function login() {
     if (response.ok) {
       currentUser = username;
       alert("Login successful!");
-      loadProfile();
+      
+      window.location.href = "home.html";
     } else {
       alert(result.error || "Login failed.");
     }
