@@ -59,8 +59,10 @@ body {
 }
 
 .main-content {
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     padding: 25px;
+    gap: 20px;
 }
 
 .header {
@@ -79,23 +81,27 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 20px;
     width: 100%;
 }
 
 /* Task Category Styling */
 .task-category {
     background-color: #2d2e4e;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center; /* Aligns items horizontally to the center */
+    align-items: center; /* Aligns items vertically to the center */
+    text-align: center; /* Centers inline content */
 }
+
 
 .task-category h3 {
     color: #f781c6;
     margin-bottom: 10px;
     font-size: 20px;
-    text-align: left;
+    text-align: center;
 }
 
 /* Individual Task Styling */
@@ -179,8 +185,9 @@ body {
     justify-content: space-between;
     gap: 15px;
     margin-top: 30px;
+    margin-left: auto; /* Pushes to the right */
+    width: 100%;
 }
-
 .stats, .achievements {
     flex: 1;
     background: #2c3e50;
