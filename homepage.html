@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duolingo Dashboard</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">QuestGram</div>
+            <ul class="menu">
+                <li class="menu-item active" data-section="learn">LEARN</li>
+                <li class="menu-item" data-section="practice">PRACTICE</li>
+                <li class="menu-item" data-section="leaderboards">LEADERBOARDS</li>
+                <li class="menu-item" data-section="quests">QUESTS</li>
+                <li class="menu-item" data-section="shop">SHOP</li>
+                <li class="menu-item" data-section="profile">PROFILE</li>
+                <li class="menu-item" data-section="more">MORE</li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="unit-info">
+                    <span>SECTION 1, UNIT 6</span>
+                    <h2>Say where you're from</h2>
+                </div>
+                <button class="guidebook" onclick="showGuidebook()">GUIDEBOOK</button>
+            </div>
+
+            <!-- Lesson Section -->
+            <div class="lesson">
+                <div class="lesson-item" onclick="startLesson()">
+                    <div class="lesson-icon">START</div>
+                    <div class="lesson-text">Say where you're from</div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="right-sidebar">
+                <div class="promo-card">
+                    <h3>Try Super for free</h3>
+                    <p>No ads, personalized practice, and unlimited Legendary!</p>
+                    <button class="promo-button" onclick="startTrial()">TRY 2 WEEKS FREE</button>
+                </div>
+
+                <div class="leaderboard-info">
+                    <h3>Better luck next time!</h3>
+                    <p>You finished #26 and dropped down to the Gold League</p>
+                    <button class="leaderboard-button" onclick="goToLeaderboards()">GO TO LEADERBOARDS</button>
+                </div>
+
+                <div class="daily-quests">
+                    <h3>Daily Quests</h3>
+                    <button class="view-all-button" onclick="viewAllQuests()">VIEW ALL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="homepage.js"></script>
+</body>
+</html>
