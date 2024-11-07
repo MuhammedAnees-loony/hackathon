@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1b1b32;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.sidebar {
+    background-color: #2d2e4e;
+    width: 200px;
+    padding: 20px;
+}
+
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #55f;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background 0.3s;
+}
+
+.sidebar .menu-item.active, .sidebar .menu-item:hover {
+    background-color: #40406e;
+}
+
+.sidebar .menu-item span {
+    margin-right: 10px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f781c6;
+    padding: 15px;
+    border-radius: 8px;
+    color: black;
+}
+
+.header .guidebook-btn {
+    background-color: #fff;
+    color: #f781c6;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task-area {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.task-icon {
+    font-size: 40px;
+    background-color: #f781c6;
+    padding: 10px;
+    border-radi
