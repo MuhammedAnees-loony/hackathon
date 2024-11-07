@@ -1,24 +1,44 @@
-// Dummy user data storage using localStorage
+// Dummy user data storage using localStorage (only used temporarily until backend is connected)
 const users = JSON.parse(localStorage.getItem("users")) || {};
 let currentUser = null;
-let generatedOTP = null; // For OTP validation
+let generatedOTP = 1001; // For OTP validation
 
 // Generate OTP
-function generateOTP() {
-  const phone = document.getElementById("register-phone").value;
+async function generateOTP() {
+    const phone = document.getElementById("register-phone").value;
   
-  if (phone.length !== 10 || isNaN(phone)) {
-    alert("Please enter a valid 10-digit phone number.");
-    return;
+    if (phone.length !== 10 || isNaN(phone)) {
+      alert("Please enter a valid 10-digit phone number.");
+      return;
+    }
+  
+    // Send phone number to backend to generate OTP
+    try {
+      const response = await fetch('http://127.0.0.1:5000/generate-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ phone_number: phone })
+      });
+  
+      const result = await response.json();
+  
+      if (response.ok) {
+        generatedOTP = result.otp;  // Store the OTP returned by backend
+        alert(`Your OTP is: ${generatedOTP}`);
+      } else {
+        alert(result.error || "OTP generation failed.");
+      }
+    } catch (error) {
+      console.error("Error during OTP generation:", error);
+      alert("An error occurred while generating OTP. Please try again.");
+    }
   }
-
-  // Generate a 4-digit OTP (for demonstration only)
-  generatedOTP = Math.floor(1000 + Math.random() * 9000);
-  alert(`Your OTP is: ${generatedOTP}`);
-}
+  
 
 // Register a new user
-function register() {
+async function register() {
   const username = document.getElementById("register-username").value;
   const password = document.getElementById("register-password").value;
   const phone = document.getElementById("register-phone").value;
@@ -36,32 +56,68 @@ function register() {
     return;
   }
 
-  // Check if username already exists
-  if (users[username]) {
-    alert("Username already exists.");
-    return;
-  }
+  // Prepare data to send to backend
+  const userData = { username, password, phonenumber: phone, role };
 
-  // Save user data
-  users[username] = { password, phone, tasks: 0, points: 0, achievements: [], rewards: [] };
-  localStorage.setItem("users", JSON.stringify(users));
-  alert("Registration successful! Please log in.");
-  showLoginForm();
+  try {
+    // Send data to backend
+    const response = await fetch('http://127.0.0.1:5000/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    });
+    
+    const result = await response.json();
+    
+    if (response.ok) {
+      alert("Registration successful! Please log in.");
+      showLoginForm();
+    } else {
+      alert(result.error || "Registration failed.");
+    }
+  } catch (error) {
+    console.error("Error during registration:", error);
+    alert("An error occurred during registration. Please try again.");
+  }
 }
 
 // Log in the user
-function login() {
+async function login() {
   const username = document.getElementById("login-username").value;
   const password = document.getElementById("login-password").value;
   const role = document.getElementById("login-role").value;
 
-  if (users[username] && users[username].password === password) {
-    currentUser = username;
-    loadProfile();
-  } else {
-    alert("Invalid credentials or role.");
+  // Prepare login data
+  const loginData = { username, password, role };
+
+  try {
+    // Send login data to backend
+    const response = await fetch('http://127.0.0.1:5000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(loginData)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      currentUser = username;
+      alert("Login successful!");
+      loadProfile();
+      window.location.href = "home.html";
+    } else {
+      alert(result.error || "Login failed.");
+    }
+  } catch (error) {
+    console.error("Error during login:", error);
+    alert("An error occurred during login. Please try again.");
   }
 }
+
 // Show login form
 function showLoginForm() {
   document.getElementById("register-form").classList.remove("active");
