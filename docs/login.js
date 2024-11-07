@@ -15,7 +15,7 @@ async function generateOTP() {
   
     // Send phone number to backend to generate OTP
     try {
-      const response = await fetch('http://10.10.189.19:5000/generate-otp', {
+      const response = await fetch('http://127.0.0.1:5000/generate-otp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ async function register() {
 
   try {
     // Send data to backend
-    const response = await fetch('http://10.10.189.19:5000/register', {
+    const response = await fetch('http://127.0.0.1:5000/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -95,7 +95,7 @@ async function login() {
 
   try {
     // Send login data to backend
-    const response = await fetch('http://10.10.189.19:5000/login', {
+    const response = await fetch('http://127.0.0.1:5000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
