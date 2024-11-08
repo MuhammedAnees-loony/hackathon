@@ -106,8 +106,9 @@ async function login() {
     const result = await response.json();
 
     if (response.ok) {
-      currentUser = username;
-      alert("Login successful!");
+        sessionStorage.setItem("authenticated", "true");
+        currentUser = username;
+        alert("Login successful!");
       
       window.location.href = "home.html";
     } else {
