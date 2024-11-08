@@ -100,7 +100,40 @@ taskButtons.forEach((button) => {
         handleTaskButtonClick(button.textContent);
     });
 });
+async function fetchLeaderboardData() {
+    try {
+        const response = await fetch('http://127.0.0.1:5000/leaderboard');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        populateLeaderboard(data);
+    } catch (error) {
+        console.error('Error fetching leaderboard data:', error);
+        // Show error message to user
+        document.getElementById('leaderboard-content').innerHTML = 
+            '<p class="error-message">Unable to load leaderboard. Please try again later.</p>';
+    }
+}
+// Populate leaderboard section with data received from backend
+function populateLeaderboard(data) {
+    const leaderboardContainer = document.querySelector('.leaderboard');
+    leaderboardContainer.innerHTML = ''; // Clear existing leaderboard
 
+    data.forEach((entry, index) => {
+        const leaderDiv = document.createElement('div');
+        leaderDiv.className = 'leader animate';
+        if (index === 4) leaderDiv.classList.add('current-user'); // Highlight current user if needed
+
+        leaderDiv.innerHTML = `
+            <span class="rank">${index + 1}</span>
+            <span class="name">${entry.name}</span>
+            <span class="xp">${entry.xp} XP</span>
+        `;
+
+        leaderboardContainer.appendChild(leaderDiv);
+    });
+}
 // Initialize with the content for the "Tasks" menu
 showContent(3);
 // QR Code Scanner Logic
