@@ -134,7 +134,7 @@ body {
 
 .task button {
     background: transparent;
-    color: #f1f1f1;
+    color: #d7136c;
     border: none;
     font-size: 16px;
     cursor: pointer;
@@ -144,7 +144,7 @@ body {
 }
 
 .task button:hover {
-    background-color: #40406e;
+    background-color: #1cd113;
 }
 
 .task-details {
@@ -403,5 +403,88 @@ button:hover {
     100% {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+/* User Manual Styles */
+.user-manual {
+    background-color: #f9f9f9;
+    padding: 30px;
+    max-width: 900px;
+    margin: 30px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: none; /* Hide by default */
+}
+
+.user-manual h2 {
+    font-size: 2em;
+    color: #2c7b1f;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.user-manual section {
+    margin-bottom: 20px;
+}
+
+.user-manual section h3 {
+    font-size: 1.5em;
+    color: #2c7b1f;
+    margin-bottom: 10px;
+}
+
+.user-manual section p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.user-manual section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #555;
+}
+
+.user-manual section ul li {
+    margin-bottom: 10px;
+}
+
+.user-manual section ul li:before {
+    content: "✔️";
+    padding-right: 10px;
+    color: #2c7b1f;
+}
+
+.user-manual section ul li a {
+    color: #2c7b1f;
+    text-decoration: none;
+}
+
+.user-manual section ul li a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .user-manual {
+        padding: 20px;
+    }
+
+    .user-manual h2 {
+        font-size: 1.8em;
+    }
+
+    .user-manual section h3 {
+        font-size: 1.3em;
+    }
+
+    .user-manual section p {
+        font-size: 0.9em;
+    }
+
+    .user-manual section ul {
+        padding-left: 15px;
     }
 }

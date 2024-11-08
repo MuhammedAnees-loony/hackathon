@@ -8,6 +8,8 @@ const taskButtons = document.querySelectorAll('.task button');
 const taskDetailsSection = document.getElementById('taskDetails');
 const taskDescription = document.getElementById('taskDescription');
 const questSection = document.querySelector('.quests-section'); // Get the quest section element
+const learnMenu = document.getElementById('learnMenu'); // Learn menu item
+const questMenu = document.getElementById('questMenu'); // Quest menu item
 
 document.querySelector('.menu-item.active').classList.remove('active');
 menuItems[3].classList.add('active');
@@ -20,6 +22,7 @@ const taskDescriptions = {
 };
 
 function showContent(menuIndex) {
+    // Hide all sections by default
     taskCategories.forEach(taskCategory => taskCategory.style.display = 'none');
     profileCard.style.display = 'none';
     statsAchievements.style.display = 'none';
@@ -27,8 +30,12 @@ function showContent(menuIndex) {
     main2.style.display = 'none';
     taskDetailsSection.style.display = 'none';
     questSection.style.display = 'none'; // Hide quest section by default
+    document.getElementById('userManual').style.display = 'none'; // Hide user manual by default
 
+    // Display content based on the selected menu item
     if (menuIndex === 0) {
+
+        document.getElementById('userManual').style.display = 'block'; // Show user manual when Learn is clicked
         console.log('Learn Section clicked');
     } else if (menuIndex === 1) {
         main2.style.display = 'block';
@@ -90,4 +97,5 @@ taskButtons.forEach((button) => {
     });
 });
 
+// Initialize with the content for the "Tasks" menu
 showContent(3);
