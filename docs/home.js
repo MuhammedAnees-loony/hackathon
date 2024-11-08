@@ -1,5 +1,5 @@
 if (!sessionStorage.getItem("authenticated")) {
-    window.location.href = "/login"; // Redirect to login if not authenticated
+    window.location.href = "/index.html"; // Redirect to login if not authenticated
 } else {
         const menuItems = document.querySelectorAll('.menu-item');
         const taskCategories = document.querySelectorAll('.task-category');
