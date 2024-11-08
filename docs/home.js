@@ -42,6 +42,7 @@ function showContent(menuIndex) {
     } else if (menuIndex === 1) {
         main2.style.display = 'block';
         console.log('Leaderboards Section clicked');
+        fetchLeaderboardData();
     } else if (menuIndex === 2) {
         questSection.style.display = 'block'; // Show quest section when Quests menu is clicked
         console.log('Quests Section clicked');
