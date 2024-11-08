@@ -488,3 +488,27 @@ button:hover {
         padding-left: 15px;
     }
 }
+/* Styles for QR Code Scanner and Image Uploader */
+#qr-scanner, #image-uploader {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+#qr-scanner h2, #image-uploader h2 {
+    margin-bottom: 10px;
+}
+
+#preview-container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#preview {
+    max-width: 100%;
+    max-height: 200px;
+}
