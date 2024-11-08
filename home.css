@@ -512,3 +512,48 @@ button:hover {
     max-width: 100%;
     max-height: 200px;
 }
+/* QR Code Scanner and Image Uploader */
+#qr-scanner, #image-uploader {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #1f2d3a;
+    color: #f1f1f1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#qr-scanner h2, #image-uploader h2 {
+    margin-bottom: 15px;
+    color: #58d68d;
+}
+
+#qr-input, #image-input {
+    display: block;
+    margin: 0 auto;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+#qr-input:hover, #image-input:hover {
+    background-color: #58d68d;
+}
+
+#image-preview {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+#preview {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 8px;
+}

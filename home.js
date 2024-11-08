@@ -31,6 +31,8 @@ function showContent(menuIndex) {
     taskDetailsSection.style.display = 'none';
     questSection.style.display = 'none'; // Hide quest section by default
     document.getElementById('userManual').style.display = 'none'; // Hide user manual by default
+    document.getElementById('qr-scanner').style.display = 'none'; // Hide QR scanner by default
+    document.getElementById('image-uploader').style.display = 'none';
 
     // Display content based on the selected menu item
     if (menuIndex === 0) {
@@ -46,6 +48,8 @@ function showContent(menuIndex) {
     } else if (menuIndex === 3) {
         taskCategories.forEach(taskCategory => taskCategory.style.display = 'block');
     } else if (menuIndex === 4) {
+        document.getElementById('qr-scanner').style.display = 'block';
+        document.getElementById('image-uploader').style.display = 'block';
         console.log('Redeem Section clicked');
     } else if (menuIndex === 5) {
         profileCard.style.display = 'block';
@@ -99,3 +103,42 @@ taskButtons.forEach((button) => {
 
 // Initialize with the content for the "Tasks" menu
 showContent(3);
+// QR Code Scanner Logic
+const qrInput = document.getElementById('qr-input');
+qrInput.addEventListener('change', function () {
+    const file = qrInput.files[0];
+    if (file) {
+        // Initialize QR Code scanner logic here
+        // You can use a library such as html5-qrcode to process the QR code scan
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const image = new Image();
+            image.src = e.target.result;
+            image.onload = function () {
+                // Process the image (e.g., use a library to scan for QR codes)
+                console.log('QR Code scanned successfully!');
+                setTimeout(() => {
+                    alert('Task Verified');
+                }, 2000); // 2 seconds delay for the verification message
+            };
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// Image Upload Logic
+const imageInput = document.getElementById('image-input');
+const preview = document.getElementById('preview');
+imageInput.addEventListener('change', function () {
+    const file = imageInput.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            preview.src = e.target.result; // Set the preview image
+            setTimeout(() => {
+                alert('Task Verified');
+            }, 2000); // 2 seconds delay for the verification message
+        };
+        reader.readAsDataURL(file);
+    }
+});
